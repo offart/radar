@@ -6,7 +6,7 @@ I use it to find leads for my studio. The same automation, collect from public s
 
 Solo project since September 2026. It runs every morning on a Linux server, and the ranked rows land in my [Finance and CRM Platform](https://github.com/offart/finance-crm-platform), where I review them.
 
-<p align="center"><img src="media/run-funnel.png" width="760" alt="One morning run: 7,802 collected, 7,013 after duplicates, 6,161 fresh, 6,102 requests, 104 ranked A to C and sent to the CRM"></p>
+<p align="center"><img src="media/morning-run.png" width="860" alt="One morning run on 7 October 2026: 104 of 7,802 rows reached the CRM, 33 of them through the local model check, with the grades A to F below"></p>
 
 **Highlights**
 
@@ -35,6 +35,8 @@ When I reject a row in the CRM, it sinks to F in the next run and stays in the f
 ### A local model that can only add
 
 The rules stop at the title, so a real fit written in plain words can fall to D. A small open model on the server's CPU reads only those rows, ones held back by a missing signal and nothing else. A yes lifts the row to C, marked for review. A no, an error or a model that is down leaves the row exactly as it was. No call leaves the server, so there is no token bill, answers are cached, and each morning has a time budget, with the rest left for the next day. On 7 October it read 231 rows, answered 209 from its cache, and 33 of the 104 rows sent to the CRM were there because of its yes.
+
+<p align="center"><img src="media/one-row.png" width="760" alt="An invented example row: collected, merged, ranked D, lifted to C by the local model check, passed the schema check and reached the CRM"></p>
 
 ## How it is checked
 
